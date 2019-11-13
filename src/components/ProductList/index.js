@@ -19,8 +19,8 @@ class ProductListContainer extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { products: state.products };
+function mapStateToProps(reduxState) {
+  return { products: reduxState.products };
 }
 
 // think about how to display images on the front page first
