@@ -50,3 +50,29 @@ export const getSelectedProduct = id => (dispatch, getState) => {
       .catch(console.error);
   }
 };
+
+//create product
+export const NEW_PRODUCT = "NEW_PRODUCT";
+function newProduct(payload) {
+  return {
+    type: NEW_PRODUCT,
+    payload
+  };
+}
+
+export const createProduct = (
+  title,
+  imageUrl,
+  description,
+  price
+) => dispatch => {
+  request
+    .post(`${baseUrl}/products`)
+    .send({ title, imageUrl, description, price })
+    .then(response => {
+      const action = newProduct(response.body);
+
+      dispatch(action);
+    })
+    .catch(console.error);
+};

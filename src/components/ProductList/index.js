@@ -2,6 +2,7 @@ import React from "react";
 import ProductList from "./ProductList";
 import { getProducts } from "../../actions/products";
 import { connect } from "react-redux";
+import CreateFormContainer from "../CreateForm";
 
 class ProductListContainer extends React.Component {
   componentDidMount() {
@@ -10,10 +11,8 @@ class ProductListContainer extends React.Component {
   render() {
     return (
       <div>
-        <ProductList
-          products={this.props.products}
-          // key={this.props.products.id}
-        />
+        <CreateFormContainer />
+        <ProductList products={this.props.products} />
       </div>
     );
   }
